@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block body %}
+<div class="global-container">
+	<div class="card login-form">
+	<div class="card-body">
+		<h3 class="card-title text-center">Your Mail is verified</h3>
+		<div class="card-text text-center">
+			Please Log In
+		</div>
+        <div class="text-center">
+            <a href="{% url 'LOGIN' %}"><button class="btn btn-primary">Login</button></a>
+        </div>
+	</div>
+</div>
+</div>
+    
+{% endblock body %}

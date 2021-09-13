@@ -7,7 +7,6 @@ import uuid
 from django.conf import settings
 from django.core.mail import message, send_mail
 from django.contrib.auth import login,authenticate,logout
-from django.shortcuts import redirect, render
 from .forms import SearchForm,ContactForm
 from .models import BlogPost,Contact
 from django.http import Http404
@@ -116,7 +115,6 @@ def register(request):
             sendMail(email,auth_token)
             return redirect('TOKENSEND')
         except Exception as e:
-            print(e)
     return render(request,'register.html')
 
 def success(request):
@@ -150,7 +148,6 @@ def verify(request,auth_token):
         else:
             return redirect('ERROR')
     except Exception as e:
-        print(e)
 
 def error_page(request):
     return render(request,'error.html')
@@ -188,7 +185,7 @@ def forgotPass(request):
             return redirect('TOKENSEND')
 
     except Exception as e:
-        print(e)
+        
     
     return render(request,'forgot-pass.html')
 
@@ -220,5 +217,4 @@ def recreatePass(request,token):
             return redirect('LOGIN')
 
     except Exception as e:
-        print(e)
     return render(request,'recreate-pass.html',context)
